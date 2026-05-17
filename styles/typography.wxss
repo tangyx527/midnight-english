@@ -1,0 +1,75 @@
+/* ===== 字体层级系统 · Typography Scale =====
+  统一字重、行高、字间距
+  基于设计系统 CSS 变量，提供语义化排版类
+*/
+
+/* 页面大标题 · h1 */
+.t-h1 {
+  font-size: var(--font-xxl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text);
+}
+
+/* 区块标题 · h2 */
+.t-h2 {
+  font-size: var(--font-xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text);
+}
+
+/* 正文 · body */
+.t-body {
+  font-size: var(--font-md);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text);
+}
+
+/* 英文句子 · body-en */
+.t-body-en {
+  font-size: var(--font-md);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+/* 辅助说明 · caption */
+.t-caption {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text-secondary);
+}
+
+/* 微小提示 · hint */
+.t-hint {
+  font-size: var(--font-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text-hint);
+}
+
+/* 封面引用句 · quote */
+.t-quote {
+  font-size: var(--font-lg);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-text);
+}
+
+/* TabBar 标签 */
+.t-tab-label {
+  font-size: 20rpx;
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-normal);
+}

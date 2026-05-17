@@ -1,0 +1,88 @@
+page {
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--spacing-xxl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-bottom: var(--spacing-md);
+}
+
+.avatar--placeholder {
+  background-color: var(--color-accent-bg);
+}
+
+.nickname {
+  font-size: var(--font-lg);
+  color: var(--color-text);
+}
+
+.login-hint {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-xs);
+  color: var(--color-text-hint);
+  letter-spacing: 1rpx;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: var(--font-xl);
+  color: var(--color-text);
+}
+
+.stat-label {
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-sm);
+  color: var(--color-text-hint);
+}
+
+/* ===== 管理工具区 ===== */
+.admin-section {
+  padding: var(--spacing-lg);
+}
+
+.admin-divider {
+  height: 1rpx;
+  background-color: var(--color-border);
+  margin-bottom: var(--spacing-lg);
+}
+
+.admin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md);
+}
+
+.admin-label {
+  font-size: var(--font-md);
+  color: var(--color-accent);
+}
+
+.admin-desc {
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-xs);
+  color: var(--color-text-hint);
+}

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(npx tcb *)",
+      "Bash(node scripts/generate-content.js)",
+      "Bash(node -e \"const d = require\\('./mock/essays.json'\\); console.log\\('=== 第一篇文章 tokens 示例 ==='\\); const s0 = d[0].sentences[0]; console.log\\('EN:', s0.en\\); console.log\\('Tokens:', JSON.stringify\\(s0.tokens\\)\\); console.log\\(''\\); console.log\\('=== 各文章概览 ==='\\); d.forEach\\(e => console.log\\(e.id, '|', e.title, '| 难度' + e.difficulty, '|', e.readingTime + 's', '|', e.sentences.length + '句', '| tokens校验:', e.sentences.every\\(s => s.tokens.length > 0\\) ? 'OK' : 'FAIL'\\)\\);\")",
+      "Bash(node -e ' *)",
+      "Bash(node scripts/upload-to-cloud.js --dry-run)",
+      "Bash(node scripts/upload-to-cloud.js)",
+      "Bash(npx cloudbase *)",
+      "Bash(node scripts/generate-batch.js)",
+      "Bash(xxd)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const l=fs.readFileSync\\('mock/essays.jsonl','utf-8'\\).split\\('\\\\n'\\).filter\\(Boolean\\);console.log\\('行数:',l.length\\);console.log\\('首行有效:',l[0].startsWith\\('{'\\)\\);console.log\\('末行有效:',l[l.length-1].endsWith\\('}'\\)\\);let ok=0;l.forEach\\(\\(line,i\\)=>{try{JSON.parse\\(line\\);ok++}catch\\(e\\){console.log\\('第'+\\(i+1\\)+'行解析失败:',e.message.substring\\(0,60\\)\\)}}\\);console.log\\('合法行:',ok,'/',l.length\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const lines=fs.readFileSync\\('components/EssayCard/index.js','utf-8'\\).split\\('\\\\n'\\); console.log\\(JSON.stringify\\(lines[92]\\)\\); console.log\\(JSON.stringify\\(lines[93]\\)\\); console.log\\(JSON.stringify\\(lines[94]\\)\\); console.log\\(JSON.stringify\\(lines[95]\\)\\);\")"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash C:\\Users\\22756\\.claude\\statusline.sh"
+  }
+}

@@ -1,0 +1,30 @@
+<view
+  class="wc-card {{_expanded ? 'wc-card--expanded' : ''}}"
+  style="{{_swipeStyle}}"
+  bind:tap="onCardTap"
+  bindtouchstart="onTouchStart"
+  bindtouchmove="onTouchMove"
+  bindtouchend="onTouchEnd"
+>
+  <!-- 单词 -->
+  <view class="wc-word-row">
+    <text class="wc-word">{{entry.word || ''}}</text>
+    <text class="wc-meaning">{{entry.meaning || ''}}</text>
+  </view>
+
+  <!-- 来源句子（点击展开） -->
+  <view wx:if="{{_expanded}}" class="wc-source">
+    <view class="wc-source__divider"></view>
+    <text class="wc-source__sentence">"{{entry.sourceSentence || ''}}"</text>
+    <view class="wc-source__meta">
+      <text class="wc-source__title">{{entry.sourceTitle || ''}}</text>
+      <text class="wc-source__sep">·</text>
+      <text class="wc-source__time">{{entry.collectedTime || ''}}</text>
+    </view>
+  </view>
+
+  <!-- 折叠提示 -->
+  <view wx:if="{{!(_expanded) && entry.sourceSentence}}" class="wc-expand-hint">
+    <text class="wc-expand-hint__text">查看原句</text>
+  </view>
+</view>

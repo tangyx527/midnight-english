@@ -1,0 +1,85 @@
+/* ===== 共享动画关键帧 =====
+  风格：克制 · 呼吸感 · 柔和
+  时长统一：fast=0.15s / normal=0.28s / slow=0.4s
+  缓动统一：ease
+  禁止夸张弹性动画、贝塞尔轨迹、3D 变形
+*/
+
+/* ========================================
+   Fade 系列 · 淡入淡出
+   ======================================== */
+
+/* 淡入 — 用于遮罩层 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 淡出 — 用于遮罩层关闭 */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ========================================
+   Slide 系列 · 位移
+   ======================================== */
+
+/* 淡入上移 — 用于句子翻译展开 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(-4rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 淡入下移 — 用于通知/提示 */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-8rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   Scale 系列 · 缩放
+   ======================================== */
+
+/* 弹出缩放 — 用于弹窗卡片 */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* 缩小淡出 — 用于弹窗关闭 */
+@keyframes scaleOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.92); }
+}
+
+/* 收藏心形弹跳 — 轻量，不允许夸张 */
+@keyframes favPop {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 0.7; transform: scale(1); }
+}
+
+/* TabBar 图标切换微弹 */
+@keyframes tabPop {
+  from { transform: scale(0.86); }
+  to   { transform: scale(1); }
+}
+
+/* ========================================
+   实用动画类
+   ======================================== */
+
+/* 淡入可见 */
+.anim-fadeIn {
+  animation: fadeIn var(--transition-normal);
+}
+
+/* 滑入可见 */
+.anim-fadeInUp {
+  animation: fadeInUp var(--transition-normal);
+}
+
+/* 缩放可见 */
+.anim-scaleIn {
+  animation: scaleIn var(--transition-slow);
+}

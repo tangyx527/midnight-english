@@ -1,0 +1,89 @@
+@import '../../styles/animations.wxss';
+
+/* ===== 遮罩层 ===== */
+.wp-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-overlay);
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ===== 卡片 ===== */
+.wp-card {
+  width: 520rpx;
+  padding: var(--spacing-xl);
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  animation: scaleIn 0.25s ease;
+}
+
+.wp-card__word {
+  display: block;
+  font-size: var(--font-xxl);
+  color: var(--color-text);
+  letter-spacing: 1rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.wp-card__meaning {
+  display: block;
+  font-size: var(--font-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+}
+
+.wp-card__meaning--empty {
+  color: var(--color-text-hint);
+  font-style: italic;
+}
+
+/* ===== 操作按钮区 ===== */
+.wp-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ===== 主按钮 ===== */
+.wp-btn--primary {
+  width: 100%;
+  padding: var(--spacing-sm) 0;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition-fast);
+}
+
+.wp-btn--primary:active {
+  opacity: 0.8;
+}
+
+.wp-btn--primary .wp-btn__text {
+  font-size: var(--font-md);
+  color: var(--color-bg-elevated);
+  letter-spacing: 1rpx;
+}
+
+/* ===== 文字按钮 ===== */
+.wp-btn--text {
+  padding: var(--spacing-sm) 0;
+}
+
+.wp-btn--text:active {
+  opacity: 0.6;
+}
+
+.wp-btn--text .wp-btn__text {
+  font-size: var(--font-sm);
+  color: var(--color-text-hint);
+  letter-spacing: 1rpx;
+}

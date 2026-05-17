@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/NavigationBar/index",
+    "word-card": "/components/WordCard/index"
+  }
+}

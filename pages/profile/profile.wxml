@@ -1,0 +1,41 @@
+<navigation-bar title="我的" back="{{false}}" color="black" background="#FAF8F5"></navigation-bar>
+<view class="page-container">
+
+  <!-- 头像 + 昵称区 -->
+  <view class="profile-header" bind:tap="onTapLogin">
+    <image
+      wx:if="{{userInfo.avatarUrl}}"
+      class="avatar"
+      src="{{userInfo.avatarUrl}}"
+      mode="aspectFill"
+    />
+    <view wx:else class="avatar avatar--placeholder"></view>
+
+    <text wx:if="{{userInfo.nickName}}" class="nickname">{{userInfo.nickName}}</text>
+    <text wx:else class="nickname">{{isLoggedIn ? '深夜读者' : '点击登录'}}</text>
+
+    <text wx:if="{{!isLoggedIn}}" class="login-hint">登录后可同步收藏与生词本</text>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="stat-row">
+    <view class="stat-item">
+      <text class="stat-num">{{favoritesCount}}</text>
+      <text class="stat-label">收藏</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num">{{wordBookCount}}</text>
+      <text class="stat-label">生词</text>
+    </view>
+  </view>
+
+  <!-- 管理工具（仅开发阶段） -->
+  <view wx:if="{{!seedDone}}" class="admin-section">
+    <view class="admin-divider"></view>
+    <view class="admin-item" bind:tap="onTapSeedEssays">
+      <text class="admin-label">{{seeding ? '正在初始化...' : '初始化文章数据'}}</text>
+      <text class="admin-desc">将 4 篇示例文章写入云数据库</text>
+    </view>
+  </view>
+
+</view>

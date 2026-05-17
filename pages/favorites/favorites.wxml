@@ -1,0 +1,41 @@
+<navigation-bar title="Favorites" back="{{false}}" color="black" background="#FAF8F5"></navigation-bar>
+<view class="fav-page">
+
+  <!-- 头部 -->
+  <view class="fav-header">
+    <text class="fav-header__title">Favorites</text>
+    <text wx:if="{{favoritesList.length > 0}}" class="fav-header__count">
+      {{favoritesList.length}} 张收藏
+    </text>
+  </view>
+
+  <!-- 卡片收纳盒 -->
+  <view wx:if="{{favoritesList.length > 0}}" class="fav-box">
+    <view
+      wx:for="{{favoritesList}}"
+      wx:key="id"
+      class="fav-card-slot {{deletingId === item.id ? 'fav-card-slot--exiting' : ''}} {{index > 0 ? 'fav-card-slot--stacked' : ''}}"
+      style="z-index: {{favoritesList.length - index}};"
+    >
+      <essay-card
+        article="{{item}}"
+        expanded="{{item.expanded}}"
+        index="{{index}}"
+        isFavorited="{{true}}"
+        swipeAction="delete"
+        data-id="{{item.id}}"
+        bind:toggle="onCardToggle"
+        bind:delete="onCardDelete"
+      />
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:else class="fav-empty">
+    <text class="fav-empty__symbol">✦</text>
+    <text class="fav-empty__title">还没有收藏</text>
+    <text class="fav-empty__desc">每张卡片都是一个夜晚</text>
+    <text class="fav-empty__hint">在首页右滑，把喜欢的句子收进这里</text>
+  </view>
+
+</view>

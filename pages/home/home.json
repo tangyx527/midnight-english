@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "navigation-bar": "/components/NavigationBar/index",
+    "essay-card": "/components/EssayCard/index"
+  }
+}

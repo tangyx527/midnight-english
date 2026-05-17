@@ -1,0 +1,86 @@
+<view
+  class="ec-card {{expanded ? 'ec-card--expanded' : ''}}"
+  style="{{_swipeStyle}}"
+  bind:tap="onCardTap"
+  bindtouchstart="onTouchStart"
+  bindtouchmove="onTouchMove"
+  bindtouchend="onTouchEnd"
+>
+  <!-- 收藏标记（右上角） -->
+  <view wx:if="{{isFavorited}}" class="ec-fav-mark">&#9829;</view>
+
+  <!-- 卡片元信息 -->
+  <view class="ec-meta">
+    <text class="ec-meta__item">{{article.mood || ''}}</text>
+    <text class="ec-meta__sep">/</text>
+    <text class="ec-meta__item">{{article.difficulty || ''}}</text>
+    <text class="ec-meta__sep">/</text>
+    <text class="ec-meta__item">{{article.readingTime || ''}} min</text>
+  </view>
+
+  <!-- 标题 (点击切换中英文) -->
+  <view class="ec-title" catch:tap="onTitleTap">
+    <text class="ec-title__text">{{_showTitleZh ? article.titleZh : article.title}}</text>
+    <text wx:if="{{article.titleZh}}" class="ec-title__hint">译</text>
+  </view>
+
+  <!-- 封面引用句 -->
+  <view class="ec-cover">
+    <text class="ec-cover__text">{{article.coverQuote}}</text>
+  </view>
+
+  <!-- 句子列表 -->
+  <view class="ec-body">
+    <view
+      wx:for="{{displaySentences}}"
+      wx:key="index"
+      wx:for-item="sentence"
+      wx:for-index="sIdx"
+      class="ec-sentence {{sentence.showZh ? 'ec-sentence--shown' : ''}}"
+      data-sidx="{{sIdx}}"
+      catch:tap="onSentenceTap"
+    >
+      <!-- 英文句子（按 token 拆分渲染） -->
+      <text class="ec-sentence__en">
+        <block wx:for="{{sentence.segments}}" wx:for-item="seg" wx:key="index">
+          <text
+            wx:if="{{seg.type === 'token'}}"
+            class="ec-token"
+            data-word="{{seg.word}}"
+            data-sentence="{{sentence.en}}"
+            data-article-title="{{article.title}}"
+            catch:longpress="onTokenLongPress"
+          >{{seg.value}}</text>
+          <text wx:else>{{seg.value}}</text>
+        </block>
+      </text>
+
+      <!-- 中文翻译（淡入动画） -->
+      <text
+        wx:if="{{sentence.showZh}}"
+        class="ec-sentence__zh"
+      >{{sentence.zh}}</text>
+    </view>
+  </view>
+
+  <!-- 展开/收起提示 -->
+  <view class="ec-hint">
+    <block wx:if="{{!expanded}}">
+      <text wx:if="{{article.sentences && article.sentences.length > 2}}" class="ec-hint__text">
+        展开全部 {{article.sentences.length}} 句
+      </text>
+    </block>
+    <block wx:else>
+      <text class="ec-hint__text">收起</text>
+    </block>
+  </view>
+</view>
+
+<!-- 查词弹窗 -->
+<word-popup
+  visible="{{wordPopupVisible}}"
+  word="{{popupWord}}"
+  meaning="{{popupMeaning}}"
+  bind:close="onWordPopupClose"
+  bind:addtowordbook="onAddToWordBook"
+></word-popup>

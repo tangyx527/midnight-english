@@ -1,0 +1,130 @@
+/* ===== 悬浮胶囊 TabBar =====
+  风格：MUJI + iOS 极简 + 深夜便利店
+  悬浮 · 圆角胶囊 · 微阴影 · 半透明毛玻璃
+  设计变量由 styleIsolation: apply-shared 从 app.wxss 继承
+*/
+
+/* ===== 组件级变量回退（当继承失效时） ===== */
+.tab-capsule {
+  --color-text-hint: #B8B5B1;
+  --color-accent: #6B7B8D;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+}
+
+/* ===== 胶囊容器 ===== */
+.tab-capsule {
+  position: fixed;
+  bottom: calc(24rpx + constant(safe-area-inset-bottom));
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 640rpx;
+  height: 112rpx;
+  padding: 8rpx 16rpx;
+  background: rgba(252, 251, 250, 0.92);
+  backdrop-filter: blur(20rpx);
+  -webkit-backdrop-filter: blur(20rpx);
+  border: 1rpx solid rgba(235, 232, 228, 0.6);
+  border-radius: 56rpx;
+  box-shadow: 0 4rpx 24rpx rgba(58, 58, 58, 0.08),
+              0 1rpx 4rpx rgba(58, 58, 58, 0.04);
+  z-index: 900;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+/* ===== 单个标签项 ===== */
+.tab-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140rpx;
+  height: 88rpx;
+  border-radius: 40rpx;
+  padding: 6rpx 0;
+  box-sizing: border-box;
+  transition: background-color 0.28s ease;
+}
+
+/* 按压反馈 */
+.tab-item:active {
+  opacity: 0.75;
+  transition: opacity 0.1s ease;
+}
+
+/* ===== 选中态 ===== */
+.tab-item--active {
+  background-color: rgba(107, 123, 141, 0.08);
+}
+
+.tab-item--active .tab-text {
+  color: var(--color-accent);
+  font-weight: var(--weight-semibold);
+}
+
+.tab-item--active .tab-icon {
+  background-color: var(--color-accent);
+  animation: tabPop 0.28s ease;
+}
+
+@keyframes tabPop {
+  from { transform: scale(0.86); }
+  to   { transform: scale(1); }
+}
+
+/* ===== 图标 ===== */
+.tab-icon {
+  width: 42rpx;
+  height: 42rpx;
+  margin-bottom: 4rpx;
+  background-color: var(--color-text-hint);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: background-color 0.28s ease,
+              transform 0.28s ease;
+}
+
+/* 首页图标 */
+.tab-icon--home {
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00zIDlsOS03IDkgN3YxMWEyIDIgMCAwMS0yIDJINWEyIDIgMCAwMS0yLTJ6Jy8+PHBvbHlsaW5lIHBvaW50cz0nOSAyMiA5IDEyIDE1IDEyIDE1IDIyJy8+PC9zdmc+");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00zIDlsOS03IDkgN3YxMWEyIDIgMCAwMS0yIDJINWEyIDIgMCAwMS0yLTJ6Jy8+PHBvbHlsaW5lIHBvaW50cz0nOSAyMiA5IDEyIDE1IDEyIDE1IDIyJy8+PC9zdmc+");
+}
+
+/* 收藏图标 */
+.tab-icon--heart {
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00yMC44NCA0LjYxYTUuNSA1LjUgMCAwMC03Ljc4IDBMMTIgNS42N2wtMS4wNi0xLjA2YTUuNSA1LjUgMCAwMC03Ljc4IDcuNzhsMS4wNiAxLjA2TDEyIDIxLjIzbDcuNzgtNy43OCAxLjA2LTEuMDZhNS41IDUuNSAwIDAwMC03Ljc4eicvPjwvc3ZnPg==");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00yMC44NCA0LjYxYTUuNSA1LjUgMCAwMC03Ljc4IDBMMTIgNS42N2wtMS4wNi0xLjA2YTUuNSA1LjUgMCAwMC03Ljc4IDcuNzhsMS4wNiAxLjA2TDEyIDIxLjIzbDcuNzgtNy43OCAxLjA2LTEuMDZhNS41IDUuNSAwIDAwMC03Ljc4eicvPjwvc3ZnPg==");
+}
+
+/* 生词本图标 */
+.tab-icon--book {
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J000IDE5LjVBMi41IDIuNSAwIDAxNi41IDE3SDIwJy8+PHBhdGggZD0nTTQgNC41QTIuNSAyLjUgMCAwMTYuNSAySDIwdjIwSDYuNUEyLjUgMi41IDAgMDE0IDE5LjV2LTE1eicvPjwvc3ZnPg==");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J000IDE5LjVBMi41IDIuNSAwIDAxNi41IDE3SDIwJy8+PHBhdGggZD0nTTQgNC41QTIuNSAyLjUgMCAwMTYuNSAySDIwdjIwSDYuNUEyLjUgMi41IDAgMDE0IDE5LjV2LTE1eicvPjwvc3ZnPg==");
+}
+
+/* 我的图标 */
+.tab-icon--profile {
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxjaXJjbGUgY3g9JzEyJyBjeT0nOCcgcj0nNCcvPjxwYXRoIGQ9J00yMCAyMXYtMmE0IDQgMCAwMC00LTRIOGE0IDQgMCAwMC00IDR2MicvPjwvc3ZnPg==");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyMwMDAnIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxjaXJjbGUgY3g9JzEyJyBjeT0nOCcgcj0nNCcvPjxwYXRoIGQ9J00yMCAyMXYtMmE0IDQgMCAwMC00LTRIOGE0IDQgMCAwMC00IDR2MicvPjwvc3ZnPg==");
+}
+
+/* ===== 文字 ===== */
+.tab-text {
+  font-size: 20rpx;
+  font-weight: var(--weight-medium);
+  color: var(--color-text-hint);
+  letter-spacing: 1rpx;
+  line-height: 1.2;
+  transition: color 0.28s ease,
+              font-weight 0.28s ease;
+}

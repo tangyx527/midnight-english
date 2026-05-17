@@ -1,0 +1,20 @@
+<view wx:if="{{visible}}" class="wp-overlay" bind:tap="onOverlayTap">
+  <view class="wp-card" catch:tap="onCardTap">
+    <!-- 单词 -->
+    <text class="wp-card__word">{{word}}</text>
+
+    <!-- 中文释义 -->
+    <text wx:if="{{meaning}}" class="wp-card__meaning">{{meaning}}</text>
+    <text wx:else class="wp-card__meaning wp-card__meaning--empty">暂无释义</text>
+
+    <!-- 操作按钮 -->
+    <view class="wp-card__actions">
+      <view class="wp-btn wp-btn--primary" bind:tap="onAddToWordBook">
+        <text class="wp-btn__text">加入生词本</text>
+      </view>
+      <view class="wp-btn wp-btn--text" bind:tap="onCancel">
+        <text class="wp-btn__text">取消</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,83 @@
+page {
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+/* ===== 页面容器 ===== */
+.words-page {
+  min-height: 100vh;
+  padding-bottom: calc(136rpx + env(safe-area-inset-bottom));
+}
+
+/* ===== 头部 ===== */
+.words-header {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+}
+
+.words-header__title {
+  display: block;
+  font-size: var(--font-xxl);
+  color: var(--color-text);
+  letter-spacing: 2rpx;
+  margin-bottom: var(--spacing-xs);
+}
+
+.words-header__count {
+  font-size: var(--font-sm);
+  color: var(--color-text-hint);
+  letter-spacing: 2rpx;
+}
+
+/* ===== 词卡列表 ===== */
+.words-list {
+  padding-top: var(--spacing-sm);
+}
+
+/* 卡片槽位 */
+.words-slot {
+  transition: opacity 0.28s ease, max-height 0.28s ease;
+  max-height: 400rpx;
+  overflow: visible;
+}
+
+/* 退出动画：卡片滑出 + 槽位收起 */
+.words-slot--exiting {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* ===== 空状态 ===== */
+.words-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30vh;
+}
+
+.words-empty__symbol {
+  font-size: 48rpx;
+  color: var(--color-text-hint);
+  opacity: 0.4;
+  margin-bottom: var(--spacing-lg);
+}
+
+.words-empty__title {
+  font-size: var(--font-lg);
+  color: var(--color-text);
+  letter-spacing: 2rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.words-empty__desc {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.words-empty__hint {
+  font-size: var(--font-xs);
+  color: var(--color-text-hint);
+  letter-spacing: 1rpx;
+}

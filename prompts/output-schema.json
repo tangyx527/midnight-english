@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Midnight English Essay",
+  "type": "object",
+  "required": ["id", "title", "coverQuote", "mood", "scene", "difficulty", "readingTime", "tags", "sentences"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "唯一标识，格式: essay_{scene}_{seq}，如 essay_convenience_store_001"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 40,
+      "description": "简洁有画面感的标题，不说教"
+    },
+    "coverQuote": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "文章中最有感觉的一句话摘录"
+    },
+    "mood": {
+      "type": "string",
+      "enum": ["calm", "wistful", "tired", "cozy", "lonely_gentle", "curious", "rainy_mood"]
+    },
+    "scene": {
+      "type": "string",
+      "enum": [
+        "convenience_store", "subway", "rainy_window", "coffee_shop",
+        "night_walk", "after_work", "night_room", "late_bus",
+        "kitchen_midnight", "balcony", "bookstore", "park_bench"
+      ]
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "1=小学, 2=初中, 3=高中, 4=大学, 5=专业文献"
+    },
+    "readingTime": {
+      "type": "integer",
+      "description": "阅读时间，单位秒，按120词/分钟计算"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "maxItems": 5,
+      "description": "标签，如 ['night', 'coffee', 'quiet']"
+    },
+    "sentences": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["en", "zh", "tokens"],
+        "properties": {
+          "en": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "英文句子"
+          },
+          "zh": {
+            "type": "string",
+            "maxLength": 80,
+            "description": "中文翻译"
+          },
+          "tokens": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "英文分词结果，每个单词和标点独立"
+          }
+        }
+      }
+    }
+  }
+}

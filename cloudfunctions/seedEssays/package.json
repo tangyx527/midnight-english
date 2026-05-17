@@ -1,0 +1,9 @@
+{
+  "name": "seed-essays",
+  "version": "1.0.0",
+  "description": "种子数据云函数 — 初始化 essays 集合",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

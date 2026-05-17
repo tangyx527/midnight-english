@@ -1,0 +1,35 @@
+<navigation-bar title="Words" back="{{false}}" color="black" background="#FAF8F5"></navigation-bar>
+<view class="words-page">
+
+  <!-- 头部 -->
+  <view class="words-header">
+    <text class="words-header__title">生词本</text>
+    <text wx:if="{{wordList.length > 0}}" class="words-header__count">
+      {{wordList.length}} 个词语
+    </text>
+  </view>
+
+  <!-- 词卡列表 -->
+  <view wx:if="{{wordList.length > 0}}" class="words-list">
+    <view
+      wx:for="{{wordList}}"
+      wx:key="word"
+      class="words-slot {{deletingWord === item.word ? 'words-slot--exiting' : ''}}"
+    >
+      <word-card
+        entry="{{item}}"
+        index="{{index}}"
+        bind:delete="onWordDelete"
+      />
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:else class="words-empty">
+    <text class="words-empty__symbol">—</text>
+    <text class="words-empty__title">摘抄本是空的</text>
+    <text class="words-empty__desc">深夜读到的词，值得记下来</text>
+    <text class="words-empty__hint">在首页长按单词，把它收进这里</text>
+  </view>
+
+</view>

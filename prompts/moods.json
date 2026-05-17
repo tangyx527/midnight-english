@@ -1,0 +1,56 @@
+{
+  "moods": [
+    {
+      "id": "calm",
+      "name": "平静",
+      "description": "安静的日常时刻，无风无浪",
+      "keywords": ["quiet", "still", "soft", "gentle", "peaceful"]
+    },
+    {
+      "id": "wistful",
+      "name": "淡淡怀念",
+      "description": "想起某个瞬间、某个人，不带悲伤",
+      "keywords": ["remember", "once", "used to", "familiar", "old"]
+    },
+    {
+      "id": "tired",
+      "name": "疲惫但满足",
+      "description": "工作后的倦意，不是崩溃",
+      "keywords": ["tired", "exhausted", "long day", "finally", "rest"]
+    },
+    {
+      "id": "cozy",
+      "name": "舒适安心",
+      "description": "被安全包裹的感觉",
+      "keywords": ["warm", "cozy", "blanket", "candle", "soft light"]
+    },
+    {
+      "id": "lonely_gentle",
+      "name": "温和的孤独",
+      "description": "一个人但不悲伤的孤独",
+      "keywords": ["alone", "empty", "quiet street", "no one", "single"]
+    },
+    {
+      "id": "curious",
+      "name": "好奇观察",
+      "description": "观察周围的人和事",
+      "keywords": ["notice", "watch", "wonder", "stranger", "someone"]
+    },
+    {
+      "id": "rainy_mood",
+      "name": "雨天的情绪",
+      "description": "雨天特有的慵懒和沉静",
+      "keywords": ["rain", "wet", "drizzle", "puddle", "umbrella"]
+    }
+  ],
+  "moodToSceneWeights": {
+    "calm": ["coffee_shop", "night_room", "night_walk", "park_bench", "balcony", "bookstore", "convenience_store", "kitchen_midnight"],
+    "wistful": ["subway", "rainy_window", "after_work", "night_room", "late_bus"],
+    "tired": ["after_work", "subway", "convenience_store", "late_bus", "night_room"],
+    "cozy": ["night_room", "coffee_shop", "rainy_window", "kitchen_midnight", "bookstore"],
+    "lonely_gentle": ["night_walk", "late_bus", "balcony", "kitchen_midnight", "night_room"],
+    "curious": ["coffee_shop", "subway", "park_bench", "bookstore"],
+    "rainy_mood": ["rainy_window", "convenience_store", "late_bus", "night_room"],
+    "slow_life": ["park_bench", "coffee_shop", "bookstore", "night_walk", "balcony"]
+  }
+}

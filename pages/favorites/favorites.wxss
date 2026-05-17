@@ -1,0 +1,96 @@
+page {
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+/* ===== 页面容器 ===== */
+.fav-page {
+  min-height: 100vh;
+  padding-bottom: calc(136rpx + env(safe-area-inset-bottom));
+}
+
+/* ===== 头部 ===== */
+.fav-header {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+}
+
+.fav-header__title {
+  display: block;
+  font-size: var(--font-xxl);
+  color: var(--color-text);
+  letter-spacing: 2rpx;
+  margin-bottom: var(--spacing-xs);
+}
+
+.fav-header__count {
+  font-size: var(--font-sm);
+  color: var(--color-text-hint);
+  letter-spacing: 2rpx;
+}
+
+/* ===== 卡片收纳盒（扑克牌盒容器） ===== */
+.fav-box {
+  margin: 0 var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border: 1rpx solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  /* 盒子内部微阴影 */
+  box-shadow: var(--shadow-inset);
+}
+
+/* ===== 卡片槽位 ===== */
+.fav-card-slot {
+  position: relative;
+  transition: opacity 0.3s ease,
+              transform 0.3s ease;
+}
+
+/* 叠放效果：非第一张卡片向上偏移，露出底部边缘 */
+.fav-card-slot--stacked {
+  margin-top: -20rpx;
+}
+
+/* 退出动画：opacity + translateX + scale，轻盈消失 */
+.fav-card-slot--exiting {
+  opacity: 0;
+  transform: translateX(-40rpx) scale(0.94);
+  pointer-events: none;
+  transition: opacity 0.3s ease,
+              transform 0.3s ease;
+}
+
+/* ===== 空状态 ===== */
+.fav-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30vh;
+}
+
+.fav-empty__symbol {
+  font-size: 64rpx;
+  color: var(--color-accent-light);
+  opacity: 0.5;
+  margin-bottom: var(--spacing-lg);
+}
+
+.fav-empty__title {
+  font-size: var(--font-lg);
+  color: var(--color-text);
+  letter-spacing: 2rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.fav-empty__desc {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.fav-empty__hint {
+  font-size: var(--font-xs);
+  color: var(--color-text-hint);
+  letter-spacing: 1rpx;
+}

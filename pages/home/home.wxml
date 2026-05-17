@@ -1,0 +1,44 @@
+<navigation-bar title="Midnight English" back="{{false}}" color="black" background="#FAF8F5"></navigation-bar>
+<view class="home">
+  <swiper
+    class="home__swiper"
+    vertical="{{true}}"
+    circular="{{false}}"
+    current="{{currentIndex}}"
+    bindchange="onSwiperChange"
+    duration="{{300}}"
+    easing-function="easeOutCubic"
+  >
+    <swiper-item wx:for="{{articles}}" wx:key="id" class="home__swiper-item">
+      <scroll-view
+        class="home__card-scroll"
+        scroll-y="{{true}}"
+        enhanced="{{true}}"
+        show-scrollbar="{{false}}"
+        bounces="{{false}}"
+      >
+        <view class="home__card-inner">
+          <essay-card
+            article="{{item}}"
+            expanded="{{item.expanded}}"
+            index="{{index}}"
+            isFavorited="{{favoriteIds[item.id]}}"
+            data-id="{{item.id}}"
+            bind:toggle="onCardToggle"
+            bind:favorite="onToggleFavorite"
+            bind:wordlongpress="onWordLongPress"
+          />
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 底部页码指示器 -->
+  <view class="home__indicator">
+    <view
+      wx:for="{{articles}}"
+      wx:key="id"
+      class="home__dot {{currentIndex === index ? 'home__dot--active' : ''}}"
+    ></view>
+  </view>
+</view>

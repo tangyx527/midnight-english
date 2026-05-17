@@ -1,0 +1,13 @@
+<view class="tab-capsule">
+  <view
+    wx:for="{{list}}"
+    wx:key="index"
+    class="tab-item {{active === index ? 'tab-item--active' : ''}}"
+    data-index="{{index}}"
+    data-path="{{item.pagePath}}"
+    bindtap="onTabChange"
+  >
+    <view class="tab-icon tab-icon--{{item.icon}}"></view>
+    <text class="tab-text">{{item.text}}</text>
+  </view>
+</view>

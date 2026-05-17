@@ -1,0 +1,144 @@
+{
+  "primaryThemes": [
+    {
+      "id": "night",
+      "name": "夜晚",
+      "description": "深夜相关的所有场景",
+      "atmosphere": ["quiet", "dim", "solitude", "peaceful"],
+      "timeRange": "21:00 - 05:00"
+    },
+    {
+      "id": "rainy",
+      "name": "雨天",
+      "description": "下雨天的场景和情绪",
+      "atmosphere": ["wet", "reflective", "cozy", "melancholy"],
+      "timeRange": "全天"
+    },
+    {
+      "id": "city",
+      "name": "城市",
+      "description": "城市生活的切片",
+      "atmosphere": ["busy", "anonymous", "neon", "concrete"],
+      "timeRange": "全天"
+    },
+    {
+      "id": "alone",
+      "name": "独处",
+      "description": "一个人的温和时刻",
+      "atmosphere": ["peaceful", "introspective", "free", "quiet"],
+      "timeRange": "全天"
+    },
+    {
+      "id": "healing",
+      "name": "疗愈",
+      "description": "温柔的情绪安抚，不鸡汤",
+      "atmosphere": ["gentle", "warm", "accepting", "kind"],
+      "timeRange": "全天"
+    },
+    {
+      "id": "slowlife",
+      "name": "慢生活",
+      "description": "放慢脚步的日常",
+      "atmosphere": ["unhurried", "mindful", "simple", "present"],
+      "timeRange": "全天"
+    }
+  ],
+  "secondaryScenes": [
+    {
+      "id": "convenience_store",
+      "name": "便利店",
+      "parentTheme": "night",
+      "description": "深夜便利店的暖光与即食食物",
+      "elements": ["hot drink", "instant noodles", "cashier", "neon sign", "glass door"],
+      "sensoryFocus": ["warm light", "hum of fridge", "smell of oden"]
+    },
+    {
+      "id": "subway",
+      "name": "地铁",
+      "parentTheme": "city",
+      "description": "地铁车厢和站台的片段",
+      "elements": ["handrail", "window", "strangers", "platform", "train arrival"],
+      "sensoryFocus": ["announcement echo", "tunnel wind", "seat warmth"]
+    },
+    {
+      "id": "rainy_window",
+      "name": "雨窗",
+      "parentTheme": "rainy",
+      "description": "透过窗户看雨",
+      "elements": ["raindrops", "foggy glass", "street view", "window sill", "passing cars"],
+      "sensoryFocus": ["rain sound", "distorted lights", "cold glass"]
+    },
+    {
+      "id": "coffee_shop",
+      "name": "咖啡店",
+      "parentTheme": "slowlife",
+      "description": "咖啡店的安静时光",
+      "elements": ["coffee cup", "window seat", "background music", "steam", "book"],
+      "sensoryFocus": ["coffee smell", "murmur", "warm mug"]
+    },
+    {
+      "id": "night_walk",
+      "name": "夜间散步",
+      "parentTheme": "night",
+      "description": "深夜独自散步",
+      "elements": ["streetlight", "empty road", "shadow", "closed shops", "cool air"],
+      "sensoryFocus": ["footsteps", "cool breeze", "distant car"]
+    },
+    {
+      "id": "after_work",
+      "name": "下班后",
+      "parentTheme": "city",
+      "description": "下班后的街道和感受",
+      "elements": ["bag", "phone", "street", "sky color", "other workers"],
+      "sensoryFocus": ["tired feet", "evening air", "phone buzz"]
+    },
+    {
+      "id": "night_room",
+      "name": "深夜房间",
+      "parentTheme": "alone",
+      "description": "深夜在自己的房间里",
+      "elements": ["desk lamp", "bed", "window", "phone screen", "ceiling"],
+      "sensoryFocus": ["silence", "dim light", "clock tick"]
+    },
+    {
+      "id": "late_bus",
+      "name": "末班车",
+      "parentTheme": "night",
+      "description": "末班公交车或电车",
+      "elements": ["bus seat", "window", "few passengers", "route map", "stop button"],
+      "sensoryFocus": ["engine hum", "passing lights", "empty seats"]
+    },
+    {
+      "id": "kitchen_midnight",
+      "name": "深夜厨房",
+      "parentTheme": "night",
+      "description": "半夜在厨房的安静时刻",
+      "elements": ["fridge light", "water glass", "kettle", "counter", "dim light"],
+      "sensoryFocus": ["fridge hum", "water sound", "cool floor"]
+    },
+    {
+      "id": "balcony",
+      "name": "阳台",
+      "parentTheme": "alone",
+      "description": "站在阳台上看城市",
+      "elements": ["railing", "city view", "distant windows", "night sky", "plant"],
+      "sensoryFocus": ["breeze", "distant sound", "cool air"]
+    },
+    {
+      "id": "bookstore",
+      "name": "书店",
+      "parentTheme": "slowlife",
+      "description": "安静的书店角落",
+      "elements": ["bookshelf", "book cover", "reading corner", "quiet people", "paper smell"],
+      "sensoryFocus": ["paper smell", "quiet rustle", "soft light"]
+    },
+    {
+      "id": "park_bench",
+      "name": "公园长椅",
+      "parentTheme": "slowlife",
+      "description": "坐在公园长椅上",
+      "elements": ["bench", "trees", "path", "birds", "sky"],
+      "sensoryFocus": ["leaf rustle", "distant chatter", "sun warmth"]
+    }
+  ]
+}
